@@ -5,6 +5,7 @@ using APICataloog.Extensions;
 using APICataloog.Filters;
 using APICataloog.Logging;
 using APICataloog.Repositories;
+using APICataloog.DTOs.Mappings;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,6 +36,8 @@ builder.Logging.AddProvider(new CustomLoggerProvider(new CustomLoggerProviderCon
 {
     LogLevel = LogLevel.Information
 }));
+
+builder.Services.AddAutoMapper(typeof(ProdutoDTOMappingProfile));
 
 var app = builder.Build();
 
